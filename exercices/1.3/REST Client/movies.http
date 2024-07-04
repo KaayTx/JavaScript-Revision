@@ -1,0 +1,22 @@
+### Read all movies with File variable
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/movies
+
+
+### Read a movie by it's id
+GET {{baseUrl}}/movies/2
+
+
+### Create a movie
+POST {{baseUrl}}/movies
+Content-Type: application/json
+
+{
+    "title": "Minions",
+    "duration": 130,
+    "budget": 180000,
+    "link": "google.com"
+}
+
+### Show films with a minimum duration of 100000
+GET {{baseUrl}}/movies/?minimum-duration=150
