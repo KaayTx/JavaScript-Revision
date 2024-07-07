@@ -1,0 +1,95 @@
+### Read all movies with File variable
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/movies
+
+
+### Read a movie by it's id
+GET {{baseUrl}}/movies/2
+
+
+### Create a movie
+POST {{baseUrl}}/movies
+Content-Type: application/json
+
+{
+    "title": "Holaaa",
+    "duration": 130,
+    "budget": 180000,
+    "link": "google.com"
+}
+
+### Show films with a minimum duration of 100000
+GET {{baseUrl}}/movies/?minimum-duration=150
+
+
+### Create a wrong movie
+POST {{baseUrl}}/movies
+Content-Type: application/json
+
+{
+    "title": "Minions",
+    "budget": 180000,
+    "link": "google.com"
+}
+
+### Read an non existing movie by it's id
+GET {{baseUrl}}/movies/120
+
+### Create an existing movie
+POST {{baseUrl}}/movies
+Content-Type: application/json
+
+{
+    "title": "Aladdin",
+    "duration": 180,
+    "budget": 50000,
+    "link": "google.com"
+}
+
+
+### Delete a movie
+DELETE {{baseUrl}}/movies/2
+
+### Patch a movie with a new title
+PATCH {{baseUrl}}/movies/3
+Content-Type: application/json
+
+{
+    "title": "Aladdin 20"
+}
+
+### Patch a movie with no parameters
+PATCH {{baseUrl}}/movies/3
+Content-Type: application/json
+
+### Put a movie with new parameters
+PUT {{baseUrl}}/movies/3
+Content-Type: application/json
+
+{
+    "title": "Aladdin 20",
+    "duration": 140,
+    "budget": 80000,
+    "link": "goog.fr"
+}
+
+### Put a movie with a missing parameter
+PUT {{baseUrl}}/movies/3
+Content-Type: application/json
+
+{
+    "title": "Aladdin 20",
+    "budget": 80000,
+    "link": "goog.fr"
+}
+
+### Put a movie with new parameters
+PUT {{baseUrl}}/movies/4
+Content-Type: application/json
+
+{
+    "title": "Jasmin 2",
+    "duration": 140,
+    "budget": 80000,
+    "link": "goog.fr"
+}
