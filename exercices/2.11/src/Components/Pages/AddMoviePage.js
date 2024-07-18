@@ -1,5 +1,6 @@
 import {clearPage, renderPageTitle} from '../../utils/render';
 import Navigate from '../Router/Navigate';
+import { addOneMovie } from '../../models/movies';
 
 const AddMoviePage = () => {
     clearPage();
@@ -42,9 +43,11 @@ function renderAddMovieForm() {
         budget: form.budget.value,
         link: form.link.value,
       };
+
+      addOneMovie(movie); // Ajoute le film dans la base de données (localStorage
   
       /* Pour afficher le film créé dans la page addMoviePage
-      
+
       clearPage(); // Efface le formulaire
       const movieInfo = `
       <p>Title: ${movie.title}</p>
