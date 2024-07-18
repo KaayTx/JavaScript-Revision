@@ -1,4 +1,5 @@
 import {clearPage, renderPageTitle} from '../../utils/render';
+import Navigate from '../Router/Navigate';
 
 const AddMoviePage = () => {
     clearPage();
@@ -42,6 +43,8 @@ function renderAddMovieForm() {
         link: form.link.value,
       };
   
+      /* Pour afficher le film créé dans la page addMoviePage
+      
       clearPage(); // Efface le formulaire
       const movieInfo = `
       <p>Title: ${movie.title}</p>
@@ -52,7 +55,11 @@ function renderAddMovieForm() {
       const movieAdded = document.createElement('div');
       movieAdded.innerHTML = movieInfo;
       main.appendChild(movieAdded);
+      */
+
       console.log(movie); // Affiche le nouveau film enregistré dans la console
+      Navigate('/view');
+
     });
   
   }
