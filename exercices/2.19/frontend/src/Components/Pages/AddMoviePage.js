@@ -34,32 +34,23 @@ function renderAddMovieForm() {
   
     main.appendChild(form);
 
-    form.addEventListener('submit', (event) => {
+    const title = document.querySelector('#title');
+    const duration = document.querySelector('#duration');
+    const budget = document.querySelector('#budget');
+    const link = document.querySelector('#link');
+
+    form.addEventListener('submit', async (event) => {
       event.preventDefault(); // Empêche le rechargement de la page
   
       const movie = {
-        title: form.title.value,
-        duration: form.duration.value,
-        budget: form.budget.value,
-        link: form.link.value,
+        title: title.value,
+        duration: Number(duration.value),
+        budget: Number(budget.value),
+        link: link.value,
       };
 
-      addOneMovie(movie); // Ajoute le film dans la base de données (localStorage
+      await addOneMovie(movie); // Ajoute le film dans la base de données (localStorage
   
-      /* Pour afficher le film créé dans la page addMoviePage
-
-      clearPage(); // Efface le formulaire
-      const movieInfo = `
-      <p>Title: ${movie.title}</p>
-      <p>Duration: ${movie.duration} minutes</p>
-      <p>Budget: $${movie.budget} million</p>
-      <p>Link: <a href="${movie.link}" target="_blank">View More</a></p>
-    `;
-      const movieAdded = document.createElement('div');
-      movieAdded.innerHTML = movieInfo;
-      main.appendChild(movieAdded);
-      */
-
       console.log(movie); // Affiche le nouveau film enregistré dans la console
       Navigate('/view');
 

@@ -1,9 +1,20 @@
-const movies = [];
+const readAllMovies = async () => {
+    const response = await fetch('/api/movies');
+    const movies = await response.json();
+    return movies;
+};
 
-const readAllMovies = () => movies;
+const addOneMovie = async (movie) => {
+    const response = await fetch('/api/movies', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(movie),
+    });
+    return response.json();
+};
 
-const addOneMovie = (movie) => {
-    movies.push(movie);
-}
+
 
 export {readAllMovies, addOneMovie};
