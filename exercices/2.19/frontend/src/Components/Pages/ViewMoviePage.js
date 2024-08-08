@@ -1,9 +1,10 @@
 import {clearPage, renderPageTitle} from '../../utils/render';
+import {readAllMovies, deleteOneMovie} from '../../models/movies';
 
 const ViewMoviePage = async () => {
     clearPage();
     renderPageTitle('View Movie');
-    const movies = await fetchAllMovies();
+    const movies = await readAllMovies();
     displayMovies(movies);
 }
 
@@ -17,6 +18,7 @@ function displayMovies(films) {
         <th>Title</th>
         <th>Duration (min)</th>
         <th>Budget (million)</th>
+        <th>Delete</th>
       </tr>
     `;
     films.forEach(film => {
@@ -26,17 +28,20 @@ function displayMovies(films) {
         <td><a href="${film.link}" target="_blank">${film.title}</a></td>
         <td>${film.duration}</td>
         <td>${film.budget}</td>
+      <td><button type="button" data-id="${film.id}">Delete</button></td>
       `;
       table.appendChild(row);
     });
     main.appendChild(table);
-}
-
-async function fetchAllMovies() {
-    const response = await fetch('/api/movies');
-    const movies = await response.json();
-    return movies;
-
+   
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+      button.addEventListener('click', async (event) => {
+        const {id} = event.target.dataset;
+        await deleteOneMovie(id);
+        ViewMoviePage();
+      });
+    });
 }
 
 export default ViewMoviePage;

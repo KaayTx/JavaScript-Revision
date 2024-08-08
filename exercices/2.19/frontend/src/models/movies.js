@@ -15,6 +15,12 @@ const addOneMovie = async (movie) => {
     return response.json();
 };
 
+const deleteOneMovie = async (id) => {
+    const response = await fetch(`/api/movies/${id}`, {
+        method: 'DELETE',
+    });
+    return response.json();
+};  
 
 
-export {readAllMovies, addOneMovie};
+export {readAllMovies, addOneMovie, deleteOneMovie};
