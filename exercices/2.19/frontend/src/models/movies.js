@@ -22,5 +22,16 @@ const deleteOneMovie = async (id) => {
     return response.json();
 };  
 
+const updateOneMovie = async (id, movie) => {
+    const response = await fetch(`/api/movies/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(movie),
+    });
+    return response.json();
+}
 
-export {readAllMovies, addOneMovie, deleteOneMovie};
+
+export {readAllMovies, addOneMovie, deleteOneMovie, updateOneMovie};

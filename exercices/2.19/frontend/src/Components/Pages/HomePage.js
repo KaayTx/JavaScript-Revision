@@ -1,11 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../stylesheets/main.css';
+import { clearPage } from '../../utils/render';
 
 import percyImage from '../../img/percy.jpg';
 import teraImage from '../../img/bridge.jpg';
 
 const HomePage = () => {
-  renderHomePage();
+    clearPage();
+    renderHomePage();
 }
 
 
