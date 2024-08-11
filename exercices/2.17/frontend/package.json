@@ -1,7 +1,7 @@
 {
-  "name": "js-router-boilerplate",
+  "name": "project-2.14",
   "version": "1.0.0",
-  "description": "myJScourse's frontend boilerplate with a router",
+  "description": "Projet 2.14 : animation",
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.9.2",
+    "animejs": "^3.2.1",
     "bootstrap": "^5.0.1"
   }
 }

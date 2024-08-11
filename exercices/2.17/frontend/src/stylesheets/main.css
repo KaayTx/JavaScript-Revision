@@ -1,18 +1,16 @@
-.question-title {
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-bottom: 10px;
+/* Large devices (desktops, 992px and up) */
+
+.responsive-background-color {
+  background-color: lightblue;
+  @media (min-width: 992px) {
+    background-color: white;
   }
-  
-  .question-block {
-    margin-bottom: 20px;
-  }
-  
-  .answers {
-    margin-left: 20px;
-  }
-  
-  .btn-primary {
-    display: block;
-    margin: 20px auto;
-  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
