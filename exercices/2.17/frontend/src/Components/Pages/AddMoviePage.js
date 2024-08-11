@@ -67,8 +67,8 @@ const AddMoviePage = () => {
 
     const movieToBeCreated = {
       title: title.value,
-      duration: duration.value,
-      budget: budget.value,
+      duration: Number(duration.value),
+      budget: Number(budget.value),
       link: link.value,
     };
 

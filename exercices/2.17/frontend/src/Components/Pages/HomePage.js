@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import anime from 'animejs/lib/anime.es';
 import grootImage from '../../img/groot.jpg';
 import stormtrooperImage from '../../img/stormtrooper.jpg';
