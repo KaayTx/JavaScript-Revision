@@ -14,4 +14,6 @@ const clearAuthenticatedUser = () => {
     currentUser = undefined;
 }
 
-export { getAuthenticatedUser, setAuthenticatedUser, isAuthentificated, clearAuthenticatedUser };
+const isAdmin = () => currentUser?.username === 'admin';
+
+export { getAuthenticatedUser, setAuthenticatedUser, isAuthentificated, clearAuthenticatedUser, isAdmin};
