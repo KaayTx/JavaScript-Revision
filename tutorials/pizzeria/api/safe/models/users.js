@@ -13,6 +13,7 @@ const saltRounds = 10;
 
 const defaultUsers = [
     {
+        id: 1,
         username: 'admin',
         password: bcrypt.hashSync('admin', saltRounds),
     }
@@ -71,7 +72,7 @@ async function createOneUser(username, password) {
     const createdUser = {
         id: nextId(),
         username,
-        hashedPassword,
+        password: hashedPassword,
     };
 
     users.push(createdUser);

@@ -30,7 +30,20 @@ Content-Type: application/json
 ### Facilitate the use of the token
 @AdminToken = {{admin.response.body.token}}
 
-### Create a pizza
+### Login as an admin
+# @name manager
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+    "username":"manager",
+    "password":"manager"
+}
+
+### Facilitate the use of the token
+@ManagerToken = {{manager.response.body.token}}
+
+### Create a pizza with an admin token
 POST {{baseUrl}}/pizzas
 Content-Type: application/json
 Authorization: {{AdminToken}}
@@ -40,6 +53,19 @@ Authorization: {{AdminToken}}
     "title":"Magic Green",
     "content":"Epinards, Brocolis, Olives vertes, Basilic"
 }
+
+
+### Create a pizza with a manager token
+POST {{baseUrl}}/pizzas
+Content-Type: application/json
+Authorization: {{{{ManagerToken}}}}
+
+
+{
+    "title":"Magic Green",
+    "content":"Epinards, Brocolis, Olives vertes, Basilic"
+}
+
 
 ### Delete pizza identified by 2
 DELETE {{baseUrl}}/pizzas/4
