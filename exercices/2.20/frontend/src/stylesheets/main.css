@@ -1,0 +1,46 @@
+.question-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .question-block {
+    margin-bottom: 20px;
+  }
+  
+  .answers {
+    margin-left: 20px;
+  }
+  
+  .btn-primary {
+    display: block;
+    margin: 20px auto;
+  }
+
+
+  /* Light Theme */
+body.light-theme {
+  background-color: white;
+  color: black;
+}
+
+/* Dark Theme */
+body.dark-theme {
+  background-color: black;
+  color: white;
+}
+
+/* Optional: Style for the header */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+header.dark-theme {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
