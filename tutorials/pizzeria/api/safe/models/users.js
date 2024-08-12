@@ -58,7 +58,9 @@ function nextId() {
 function readOneUser(username) {
     const users = parse(jsonDbPath, defaultUsers);
 
-    const user = users.find((u) => u.username === username);
+    const user = users.find((u) => u.username === username); 
+    // on stocke dans user le username et le password (tout l'objet user)
+
     return user;
 
 }

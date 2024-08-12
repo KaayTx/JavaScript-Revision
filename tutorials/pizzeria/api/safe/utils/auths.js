@@ -38,7 +38,7 @@ const isAdmin = (req, res, next) => {
 
     const {username} = req.user;
     // on récupère le username de l'utilisateur contenu dans la requête
-    // c'est comme si on faisait req.user.username
+    // c'est comme si on faisait req.user.username (parce que dans la requete on a tout l'objet user (username + password))
 
     if(username !== 'admin') return res.sendStatus(403); 
     // rappel, dans le cours, l'admin avait comme username 'admin', c'est ce qu'on vérifie directement ici
