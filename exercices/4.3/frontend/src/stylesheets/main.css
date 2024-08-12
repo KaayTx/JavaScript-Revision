@@ -1,0 +1,22 @@
+.movie-table {
+    width: 100%;
+    border-collapse: collapse; /* Pour que les bordures des cellules se collent entre elles */
+  }
+  
+  .movie-table th, .movie-table td {
+    border: 1px solid #ddd; /* Ajoute une bordure autour de chaque cellule */
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .movie-header {
+    background-color: #f2f2f2; /* Couleur de fond pour les en-têtes */
+  }
+  
+  .movie-row:nth-child(even) {
+    background-color: #f9f9f9; /* Couleur de fond pour les lignes paires */
+  }
+  
+  .movie-row:hover {
+    background-color: #ddd; /* Couleur de fond au survol des lignes */
+  }
