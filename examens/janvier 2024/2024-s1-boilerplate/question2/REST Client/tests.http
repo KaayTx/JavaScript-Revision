@@ -1,0 +1,133 @@
+@baseUrl = http://localhost:3000
+
+
+# 1. Créer une évaluation en envoyant un score correct pour l’utilisatrice nommée pinkLady
+
+### Register pinkLady
+# @name pinkLady
+POST {{baseUrl}}/auths/register
+Content-Type: application/json
+
+{
+  "username": "pinkLady",
+  "password": "password"
+}
+
+### Login pinkLady
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+# @name pinkLady
+
+{
+  "username": "pinkLady",
+  "password": "password"
+}
+
+### Save the token for later use
+@pinkLadyToken = {{pinkLady.response.body.token}}
+
+### Créer une évaluation
+POST {{baseUrl}}/auths/evaluation
+Content-Type: application/json
+Authorization: {{pinkLadyToken}}
+
+{
+  "id": 1,
+  "score": 8
+}
+
+###
+
+# 2. Créer une évaluation en envoyant un score correct pour l’utilisateur nommé greenMan
+
+### Register greenMan
+# @name greenMan
+POST {{baseUrl}}/auths/register
+Content-Type: application/json
+
+{
+  "username": "greenMan",
+  "password": "password"
+}
+
+
+### Login greenMan
+# @name greenMan
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+
+{
+  "username": "greenMan",
+  "password": "password"
+}
+
+### Save the token for later use
+@greenManToken = {{greenMan.response.body.token}}
+
+### Créer une évaluation
+POST http://localhost:3000/auths/evaluation
+Authorization: {{greenManToken}}
+Content-Type: application/json
+
+{
+  "id": 2,
+  "score": 7
+}
+
+###
+
+# 3. Tenter de créer une évaluation en envoyant un mauvais score pour l’utilisatrice nommée pinkLady
+
+### Créer une évaluation avec un mauvais score
+POST http://localhost:3000/auths/evaluation
+Authorization: {{pinkLadyToken}}
+Content-Type: application/json
+
+{
+  "id": 1,
+  "score": 15
+}
+
+###
+
+# 4. Tenter de créer une évaluation pour une citation qui n’existe pas pour l’utilisatrice pinkLady
+
+### Créer une évaluation pour une citation inexistante
+POST http://localhost:3000/auths/evaluation
+Authorization: {{pinkLadyToken}}
+Content-Type: application/json
+
+{
+  "id": 999,
+  "score": 7
+}
+
+###
+
+# 5. Tenter de créer une évaluation d’une citation déjà évaluée par l’utilisateur greenMan
+
+### Créer une évaluation déjà existante
+POST http://localhost:3000/auths/evaluation
+Authorization: {{greenManToken}}
+Content-Type: application/json
+
+{
+  "id": 2,
+  "score": 9
+}
+
+###
+
+# 6. Tenter de créer une évaluation d’une citation pour un utilisateur anonyme (non authentifié)
+
+### Créer une évaluation sans token
+POST http://localhost:3000/auths/evaluation
+Content-Type: application/json
+
+{
+  "id": 1,
+  "score": 6
+}
+
+###
